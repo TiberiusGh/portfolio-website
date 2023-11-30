@@ -122,3 +122,8 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #4c81b9;
 }
+
+header, section, footer  {
+  max-width: 1300px
+  width: 80%
+  }
