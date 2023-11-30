@@ -5,8 +5,10 @@ body {
   position: relative;
   background-color: rgb(242, 237, 237);
 }
-
+ol {
 p {
+  padding: 2%
+  }
   padding-left: 2%;
 }
 
