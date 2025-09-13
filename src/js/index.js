@@ -11,8 +11,6 @@
  * @version 2.0.0
  */
 
-import './components/my-pwd'
-import './components/app-window'
-import './components/pwd-sidebar'
-import './components/menu-bar'
-
+import "./components/content-section"
+import "./components/content-table"
+import "./components/custom-nav"
