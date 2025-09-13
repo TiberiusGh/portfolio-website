@@ -1,0 +1,32 @@
+name: Deploy Portfolio
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy with rsync
+        run: |
+          echo "📦 Syncing portfolio files..."
+
+          # Sync files (--delete removes files not in source)
+          rsync -avz --delete \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude 'README.md' \
+            ./ /var/www/html/your-portfolio/
+
+          # Set permissions
+          sudo chown -R www-data:www-data /var/www/tiberiusgh.com/
+          sudo chmod -R 755 /var/www/tiberiusgh.com/
+
+          echo "✅ Portfolio synced!"
