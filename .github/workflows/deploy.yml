@@ -23,7 +23,7 @@ jobs:
             --exclude '.git' \
             --exclude '.github' \
             --exclude 'README.md' \
-            ./ /var/www/html/your-portfolio/
+            ./ /var/www/tiberiusgh.com/
 
           # Set permissions
           sudo chown -R www-data:www-data /var/www/tiberiusgh.com/
