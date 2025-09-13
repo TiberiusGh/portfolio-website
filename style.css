@@ -1,0 +1,227 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fafafa;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 200px;
+    border-radius: 15px;
+    object-fit: cover;
+    object-position: center;
+    border: 4px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro {
+    font-size: 1.1em;
+    color: #666;
+    max-width: 500px;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .intro {
+        text-align: center;
+    }
+}
+
+.projects-section {
+    margin-top: 40px;
+}
+
+.section-title {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.app {
+    background: white;
+    border: 1px solid #e0e0e0;
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.app h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.app p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.app-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.app a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.app a:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.app a.source-btn {
+    color: #27ae60;
+    border-color: #27ae60;
+}
+
+.app a.source-btn:hover {
+    background-color: #27ae60;
+    color: white;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.github-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.social-links {
+    margin-top: 40px;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.social-links h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.social-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.social-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 140px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.social-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-card-title {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.social-card-desc {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #e0e0e0;
+    color: #888;
+    font-size: 0.9em;
+}
+
+.coming-soon {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    margin-top: 40px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    border: 1px dashed #ddd;
+}
+
+.app a.npm-btn {
+    color: #cb3837;
+    border-color: #cb3837;
+}
+
+.app a.npm-btn:hover {
+    background-color: #cb3837;
+    color: white;
+}
+
+.npm-logo-svg {
+    height: 0.8em;
+    width: auto;
+    fill: currentColor;
+    vertical-align: middle;
+    margin-left: 4px;
+}
