@@ -18,15 +18,11 @@ jobs:
         run: |
           echo "📦 Syncing portfolio files..."
 
-          # Sync files (--delete removes files not in source)
-          rsync -avz --delete \
+          # Sync files without preserving permissions, ownership, or timestamps
+          rsync -rltvz --delete --no-perms --no-owner --no-group --no-times \
             --exclude '.git' \
             --exclude '.github' \
             --exclude 'README.md' \
             ./ /var/www/tiberiusgh.com/
-
-          # Set permissions
-          sudo chown -R www-data:www-data /var/www/tiberiusgh.com/
-          sudo chmod -R 755 /var/www/tiberiusgh.com/
 
           echo "✅ Portfolio synced!"
