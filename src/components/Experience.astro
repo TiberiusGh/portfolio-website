@@ -1,0 +1,60 @@
+---
+import { experience } from '../data/cv'
+---
+
+<section id="experience">
+  <h2 class="section-title">Experience</h2>
+  <ol class="entries">
+    {
+      experience.map((entry) => (
+        <li class="entry">
+          <div class="entry-head">
+            <h3>
+              {entry.role} <span class="muted">·</span> {entry.company}
+            </h3>
+            <span class="entry-meta muted">
+              {entry.start} – {entry.end} · {entry.location}
+            </span>
+          </div>
+          <p class="entry-desc">{entry.description}</p>
+          {entry.previousRole && (
+            <p class="entry-prev muted">
+              Previously {entry.previousRole.title}, {entry.previousRole.period}.
+            </p>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  .entries {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .entry-head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .entry-meta {
+    font-size: 0.9rem;
+  }
+
+  .entry-desc {
+    margin: 0 0 0.5rem;
+  }
+
+  .entry-prev {
+    margin: 0;
+    font-size: 0.92rem;
+  }
+</style>

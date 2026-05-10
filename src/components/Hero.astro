@@ -1,0 +1,112 @@
+---
+import { profile } from '../data/cv'
+import ThemeToggle from './ThemeToggle'
+---
+
+<header class="hero">
+  <div class="hero-top">
+    <ThemeToggle client:load />
+  </div>
+  <div class="hero-content">
+    <img src={profile.photo} alt={`Photo of ${profile.name}`} class="hero-photo" width="120" height="160" />
+    <div class="hero-text">
+      <h1>Hi, I'm Tiberius.</h1>
+      <p class="hero-lead">
+        Web developer based in {profile.location}. Currently studying web programming at
+        Linnéuniversitetet, with experience as a registered nurse.
+      </p>
+      <div class="hero-ctas">
+        <a class="cta cta-primary" href="#contact">Contact me</a>
+        <a class="cta cta-secondary" href={profile.github} target="_blank" rel="noopener noreferrer">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .hero {
+    padding-top: 1.5rem;
+  }
+
+  .hero-top {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+  }
+
+  .hero-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .hero-photo {
+    flex-shrink: 0;
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .hero-text {
+    flex: 1;
+  }
+
+  .hero-lead {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1.1rem;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+  }
+
+  .cta:hover {
+    text-decoration: none;
+  }
+
+  .cta-primary {
+    background-color: var(--color-accent);
+    color: var(--color-accent-contrast);
+  }
+
+  .cta-primary:hover {
+    background-color: var(--color-accent-hover);
+    color: var(--color-accent-contrast);
+  }
+
+  .cta-secondary {
+    background-color: transparent;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+  }
+
+  .cta-secondary:hover {
+    background-color: var(--color-accent);
+    color: var(--color-accent-contrast);
+  }
+
+  @media (max-width: 600px) {
+    .hero-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+  }
+</style>
