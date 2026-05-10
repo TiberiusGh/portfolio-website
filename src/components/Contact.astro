@@ -1,0 +1,46 @@
+---
+import { contactLinks } from '../data/cv'
+---
+
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <ul class="contact-list">
+    {
+      contactLinks.map((link) => (
+        <li>
+          <span class="contact-label muted">{link.label}</span>
+          <a href={link.href}>{link.href.replace(/^mailto:/, '')}</a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contact-list li {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  .contact-label {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 600px) {
+    .contact-list li {
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
+    }
+  }
+</style>

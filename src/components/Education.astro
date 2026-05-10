@@ -1,0 +1,42 @@
+---
+import { education, educationNote } from '../data/cv'
+---
+
+<section id="education">
+  <h2 class="section-title">Education</h2>
+  <ol class="entries">
+    {
+      education.map((entry) => (
+        <li class="entry">
+          <h3>{entry.institution}</h3>
+          <p class="muted">
+            {entry.program} · {entry.period}
+          </p>
+        </li>
+      ))
+    }
+  </ol>
+  <p class="education-note muted">{educationNote}</p>
+</section>
+
+<style>
+  .entries {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .entry p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .education-note {
+    margin-top: 1.5rem;
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+</style>
