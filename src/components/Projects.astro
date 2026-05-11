@@ -1,0 +1,161 @@
+---
+import { projects } from '../data/cv'
+import Icon from './Icon.astro'
+
+const TECH_COLORS: Record<string, string> = {
+  TypeScript: '#3178c6',
+  JavaScript: '#f1e05a',
+  Python: '#3572A5',
+  'C++': '#f34b7d',
+  Rust: '#dea584',
+  HTML: '#e34c26',
+  CSS: '#563d7c',
+  'React 19': '#61dafb',
+  React: '#61dafb',
+  NestJS: '#E0234E',
+  Apollo: '#311C87',
+  PostgreSQL: '#336791',
+  Docker: '#2496ED',
+  'Web Components': '#29ABE2',
+  Firebase: '#FFCA28',
+  Vite: '#646CFF',
+  Astro: '#FF5D01',
+  'Node.js': '#339933',
+  Express: '#6f6f6f',
+  MongoDB: '#47A248',
+  Mongoose: '#880000',
+  ESP32: '#E7352C',
+  PlatformIO: '#f5822a',
+  WebSockets: '#008efc',
+  'Service Worker': '#FF6F00',
+}
+
+const colorFor = (name: string) => TECH_COLORS[name] ?? '#888888'
+---
+
+<section id="projects" class="projects-section">
+  <h2 class="section-title">Projects</h2>
+  <div class="project-grid">
+    {
+      projects.map((project) => {
+        const primary = project.links[0]
+        const github = project.links.find((l) => l.label === 'GitHub')
+        return (
+          <div class="project">
+            {github && (
+              <a
+                class="project-github"
+                href={github.href}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label={`${project.name} source on GitHub`}
+              >
+                <Icon name="github" size={22} />
+              </a>
+            )}
+            <a
+              class="project-name"
+              href={primary.href}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {project.name}
+            </a>
+            <p class="project-desc">{project.tagline}</p>
+            <div class="project-tech">
+              {project.tech.map((item) => (
+                <div class="tech">
+                  <span class="dot" style={`background-color: ${colorFor(item)};`} />
+                  <span class="tech-name">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )
+      })
+    }
+  </div>
+</section>
+
+<style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .project-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .project {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.5rem 1.5rem 1.25rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+
+  .project-github {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    display: inline-flex;
+    color: var(--color-text-muted);
+    transition: color 120ms ease;
+  }
+
+  .project-github:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .project-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    padding-right: 2rem;
+  }
+
+  .project-name:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .project-desc {
+    margin: 0 0 1.25rem;
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .project-tech {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.75rem;
+  }
+
+  .tech {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .tech-name {
+    font-size: 0.875rem;
+    color: var(--color-text);
+  }
+</style>
