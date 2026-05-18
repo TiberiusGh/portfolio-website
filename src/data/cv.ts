@@ -113,6 +113,18 @@ export const educationNote =
 
 export const projects: Project[] = [
   {
+    name: 'Screams',
+    tagline:
+      'Live room loudness from an newbon through ESP32 — no raw audio stored.',
+    description:
+      'An ESP32-H2 samples a microphone at ~2 kHz and reduces it to one RMS value per second before publishing over MQTT — so the database holds a loudness curve, not reconstructible audio. Telegraf, InfluxDB 3 and Grafana run in Docker on a homeserver; Caddy fronts the dashboard with Cloudflare Access gating owner-only paths for an MQTT-over-WebSocket buzz button.',
+    tech: ['C', 'ESP32', 'MQTT', 'InfluxDB', 'Grafana', 'Docker'],
+    links: [
+      { label: 'Live', href: 'https://screams.tiberiusgh.com' },
+      { label: 'GitHub', href: 'https://github.com/TiberiusGh/1dv027-iot' }
+    ]
+  },
+  {
     name: 'Medistat',
     tagline:
       "Personal medication tracking, enriched with Sweden's national prescription statistics.",
