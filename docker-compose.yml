@@ -1,6 +1,6 @@
 services:
   cv:
-    image: ghcr.io/tiberiusgh/cv:latest
+    image: ghcr.io/tiberiusgh/portfolio-website:latest
     pull_policy: always
     container_name: cv
     restart: unless-stopped
