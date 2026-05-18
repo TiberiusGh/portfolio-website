@@ -146,7 +146,7 @@ a:hover {
   }
 
   main {
-    padding: var(--space-section) 1.25rem var(--space-section);
+    padding: 2.5rem 1.25rem 4rem;
   }
 
   h1 {
