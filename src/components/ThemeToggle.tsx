@@ -24,23 +24,19 @@ export default function ThemeToggle() {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          width: 2.25rem;
-          height: 2.25rem;
           padding: 0;
           background: transparent;
-          color: var(--color-text-muted);
-          border: 1px solid var(--color-border);
-          border-radius: var(--radius-sm);
+          color: var(--color-text);
+          border: none;
           cursor: pointer;
-          transition: color 120ms ease, border-color 120ms ease, background-color 120ms ease;
+          transition: color 120ms ease;
         }
         .theme-toggle:hover {
-          color: var(--color-text);
-          border-color: var(--color-text-muted);
+          color: var(--color-accent);
         }
         .theme-toggle svg {
-          width: 1.05rem;
-          height: 1.05rem;
+          width: 1.5rem;
+          height: 1.5rem;
         }
       `}</style>
     </button>

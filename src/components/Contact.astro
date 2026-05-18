@@ -1,14 +1,15 @@
 ---
 import { contactLinks } from '../data/cv'
+import Icon from './Icon.astro'
 ---
 
-<section id="contact">
+<section id="contact" class="section-measure">
   <h2 class="section-title">Contact</h2>
   <ul class="contact-list">
     {
       contactLinks.map((link) => (
         <li>
-          <span class="contact-label muted">{link.label}</span>
+          <Icon name={link.icon} size={20} label={link.label} class="contact-icon" />
           <a href={link.href}>{link.href.replace(/^mailto:/, '')}</a>
         </li>
       ))
@@ -23,24 +24,17 @@ import { contactLinks } from '../data/cv'
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
 
   .contact-list li {
-    display: grid;
-    grid-template-columns: 6rem 1fr;
-    gap: 1rem;
-    align-items: baseline;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
   }
 
-  .contact-label {
-    font-size: 0.9rem;
-  }
-
-  @media (max-width: 600px) {
-    .contact-list li {
-      grid-template-columns: 1fr;
-      gap: 0.15rem;
-    }
+  .contact-icon {
+    flex-shrink: 0;
+    color: var(--color-text);
   }
 </style>
