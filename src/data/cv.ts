@@ -44,7 +44,6 @@ export type Project = {
 export const profile = {
   name: 'tiberius gherac',
   location: 'Kalmar, Sweden',
-  photo: '/img/profile.jpeg',
   github: 'https://github.com/TiberiusGh',
   linkedin: 'https://www.linkedin.com/in/tiberius-gh',
   email: 'tiberius.gherac@gmail.com',
@@ -98,7 +97,7 @@ export const skills: SkillCategory[] = [
 export const education: EducationEntry[] = [
   {
     institution: 'Linnéuniversitetet',
-    program: 'BSc Web Programming, 180 HP',
+    program: 'BSc Computer Science — Web Programming specialization, 180 HP',
     period: '2024–2027'
   },
   {

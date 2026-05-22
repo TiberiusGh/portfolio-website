@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets'
+import profilePhoto from '../assets/profile.jpeg'
 import { profile } from '../data/cv'
 import Icon from './Icon.astro'
 ---
@@ -9,8 +11,8 @@ import Icon from './Icon.astro'
       <p class="hero-eyebrow">{profile.name}</p>
       <h1><span class="hero-greeting">Hi,</span> I'm Tiberius.</h1>
       <p class="hero-lead">
-        Web developer based in {profile.location}. Currently studying web programming at
-        Linnéuniversitetet, with experience as a registered nurse.
+        Web developer based in {profile.location}. Computer science with specialization in web
+        programming at Linnéuniversitetet, with experience as a registered nurse.
       </p>
       <div class="hero-ctas">
         <a class="icon-link" href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
@@ -21,7 +23,19 @@ import Icon from './Icon.astro'
         </a>
       </div>
     </div>
-    <img src={profile.photo} alt={`Photo of ${profile.name}`} class="hero-photo" width="200" height="267" />
+    <Image
+      src={profilePhoto}
+      alt={`Photo of ${profile.name}`}
+      class="hero-photo"
+      width={200}
+      height={267}
+      densities={[1, 2]}
+      format="webp"
+      quality={75}
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
   </div>
 </header>
 

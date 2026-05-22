@@ -1,3 +1,5 @@
+@import '@fontsource-variable/inter';
+
 :root {
   --color-bg: #f7f7f7;
   --color-surface: #ededed;
@@ -8,7 +10,7 @@
   --color-accent-hover: #0f766e;
   --color-accent-contrast: #ffffff;
 
-  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   --radius-sm: 4px;
   --radius-md: 8px;

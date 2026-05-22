@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css'
+import { getImage } from 'astro:assets'
+import { profile } from '../data/cv'
+import profilePhoto from '../assets/profile.jpeg'
 
 interface Props {
   title: string
@@ -7,7 +10,31 @@ interface Props {
 }
 
 const { title, description = 'Tiberius Gherac — web developer based in Kalmar, Sweden.' } = Astro.props
-const ogImage = new URL('/img/profile.jpeg', Astro.site).href
+const ogImage = new URL('/img/og.png', Astro.site).href
+
+const optimizedProfile = await getImage({ src: profilePhoto, format: 'webp', width: 400, quality: 80 })
+const profileImage = new URL(optimizedProfile.src, Astro.site).href
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Tiberius Gherac',
+  url: Astro.site?.href,
+  image: profileImage,
+  jobTitle: 'Web Developer',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Kalmar',
+    addressCountry: 'SE'
+  },
+  sameAs: [profile.github, profile.linkedin],
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Linnéuniversitetet'
+  }
+}
 ---
 
 <!doctype html>
@@ -16,11 +43,26 @@ const ogImage = new URL('/img/profile.jpeg', Astro.site).href
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#f7f7f7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101010" media="(prefers-color-scheme: dark)" />
+    <link rel="canonical" href={canonical} />
+
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Tiberius Gherac — web developer in Kalmar, Sweden" />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Tiberius Gherac" />
+
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Tiberius Gherac — web developer in Kalmar, Sweden" />
 
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -28,10 +70,10 @@ const ogImage = new URL('/img/profile.jpeg', Astro.site).href
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="preconnect" href="https://rsms.me/" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
     <title>{title}</title>
+
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
     <script is:inline>
       // Pre-paint theme application: read persisted choice or fall back to system,
