@@ -58,7 +58,7 @@ export const experience: ExperienceEntry[] = [
     end: 'Jan 2026',
     location: 'Kalmar, Sweden',
     description:
-      'Contributed to mobile app development supporting the mission to build the coordination layer for the world’s distributed energy system.'
+      'Alongside my studies, I helped with feature development and maintaining a React Native app that allows users to control and optimize their solar panels, batteries, and EV chargers in real time. It was a great challenge where I got to work with BLE communication for physical devices and integrate everything with a GraphQL API.'
   },
   {
     role: 'Registered Nurse',
@@ -67,7 +67,7 @@ export const experience: ExperienceEntry[] = [
     end: 'Present',
     location: 'Kalmar, Sweden',
     description:
-      'Inpatient pediatric psychiatric emergency care. Coordinating with social services and schools alongside medical care for children and adolescents.',
+      'Emergency care of pediatric patients in need of psychiatric care., with close collaboration with social services, schools and other stakeholders around the patient',
     previousRole: {
       title: 'Skötare (nursing assistant)',
       period: 'Dec 2019 – June 2021'
